@@ -3,7 +3,7 @@ from . import models
 # Register your models here.
 
 class LessonAdmin(admin.ModelAdmin):
-    list_display = ('title','slug')
+    list_display = ('title','slug','create_date','update_date')
 
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ('name','slug')

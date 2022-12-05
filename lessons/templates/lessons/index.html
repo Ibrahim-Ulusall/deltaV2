@@ -10,6 +10,11 @@
 </head>
 <body>
     {% block content %}
+    {% for l in lessons %}
+        <p>
+            {{ l.description|safe }}
+        </p>
+    {% endfor %}
     {% endblock %}
 </body>
 </html>
