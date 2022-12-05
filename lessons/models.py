@@ -18,3 +18,12 @@ class LessonModels(models.Model):
     def save(self,*args,**kwargs):
         self.slug = slugify(self.title)
         super().save(*args,**kwargs)
+
+class Category(models.Model):
+    name = models.CharField(max_length=50)
+    descriptionCategory = models.TextField()
+    slug = models.SlugField(db_index=True,editable=False,unique=True)
+    
+    def save(self,*args,**kwargs):
+        self.slug= slugify(self.name)
+        super().save(*args,**kwargs)
