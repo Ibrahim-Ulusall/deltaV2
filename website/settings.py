@@ -1,3 +1,4 @@
+import os
 """
 Django settings for website project.
 
@@ -38,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'lessons',
-    'ckeditor'
+    'ckeditor',
+    'ckeditor_uploader'
 ]
 
 MIDDLEWARE = [
@@ -122,10 +124,86 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    BASE_DIR / 'static'
-]
+# STATICFILES_DIRS = [
+#     BASE_DIR / 'static'
+# ]
+STATIC_ROOT = os.path.join(BASE_DIR,'static')
+CKEDITOR_UPLOAD_PATH = 'uploads/'
+MEDIA_URL = '/media/' 
+MEDIA_ROOT = 'media/'
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# CKEDITOR_CONFIGS = {
+#     'default':{
+#         'toolbar':'full',
+#         'extraPlugins':'codesnippet',
+#         'height': 700,
+#         'width' : 1000
+#     }
+# }
+"""
+CKEDITOR_CONFIGS = {
+    'default': {
+        'skin': 'moono',
+        'toolbar':'full',
+        'extraPlugins':'codesnippet',
+        'toolbar_MyCustomToolbar': [
+            {'name': 'basic', 'items': [
+                'Source',
+                '-',
+                'Bold',
+                'Italic',
+                'CodeSnippet'  # add the codesnippet button name
+            ]}
+        ],
+
+        'codeSnippet_theme': 'monokai',
+        # uncomment to restrict only those languages
+        'codeSnippet_languages': {
+            'python': 'Python',
+            'html':'html'
+        },
+        'toolbar': 'MyCustomToolbar',
+        'extraPlugins': ','.join(
+            [
+                # add the follow plugins
+                'codesnippet',
+                # 'widget',
+                # 'dialog',
+            ]),
+    }
+}"""
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'full',
+        'extraPlugins': ','.join(
+            [
+                'codesnippet',
+                'widget',
+                'dialog',
+            ]),
+    },
+    'comment': {
+        'toolbar_Full': [
+            ['Styles', 'Format', 'Bold', 'Italic', 'Underline', 'Strike', 'SpellChecker', 'Undo', 'Redo'],
+            ['Link', 'Unlink', 'Anchor'],
+            ['Image', 'Flash', 'Table', 'HorizontalRule'],
+            ['TextColor', 'BGColor'],
+            ['Smiley', 'SpecialChar'], ['Source'],
+            ['JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock'],
+            ['NumberedList','BulletedList'],
+            ['Indent','Outdent'],
+            ['Maximize'],
+            ['CodeSnippet']
+        ],
+        'extraPlugins': ','.join(
+            [
+                'codesnippet',
+                'widget',
+                'dialog',
+            ]),
+    }
+}
