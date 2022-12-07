@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'lessons',
+    'accounts',
     'ckeditor',
     'ckeditor_uploader'
 ]
@@ -124,9 +125,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    BASE_DIR / 'staticfiles'
-]
+# STATICFILES_DIRS = [
+#     BASE_DIR / 'staticfiles'
+# ]
 STATIC_ROOT = os.path.join(BASE_DIR,'static')
 CKEDITOR_UPLOAD_PATH = 'uploads/'
 MEDIA_URL = '/media/' 
