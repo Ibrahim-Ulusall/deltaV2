@@ -1,0 +1,111 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'accounts/css/app.style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Kayıt Ol | Delta Software</title>
+</head>
+<body>
+    <!-- Error Section -->
+    {% if ValueError %}
+        <script>alert('Tüm Alanlar doldurulmalıdır.');</script>
+    {% endif %}
+
+    {% if EqualsError %}
+        <script>alert('Parolalar Eşleşmiyor');</script>
+    {% endif %}
+
+    {% if username_used_error %}
+        <script>alert('Kullanıcı Adı Kullanılıyor.');</script>
+    {% endif %}
+
+    {% if email_used_error %}
+        <script>alert('Email Adresi Kullanılıyor.');</script>
+    {% endif %}
+    
+    <!-- Error Section end -->
+    <!-- Header -->
+    <header id="page-top">
+        <div id="logo">
+            <a href=""><h1>Delta Software</h1></a>
+        </div>
+        <div id="p-right">
+            <p>Hesabınız var mı ?</p>
+            <a href="" class="btn" style="margin-left:10px;">Giriş Yap</a>
+        </div>
+    </header>
+
+    <!-- End Header -->
+    <main>
+        <!-- Container Section -->
+        <section id="container">
+            <!-- Container Top -->
+            <header class="container-top">
+                <h1>Üye Ol</h1>
+                <p>Üyelik bilgileri onaylandıktan sonra giriş sayfasına yönlendiriliceksiniz.</p>
+            </header>
+        <!-- Container Top End -->
+
+        <!-- Contaier bottom -->
+            <section class="container-bottom">
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="form-top">
+                        <section class="container-b-left">
+                            <div class="input-box">
+                                
+                                <label for="firstname">Adınız *</label>
+                                <input type="text" name="firstname" id="firstname" required placeholder="Adınız">
+                                <i class="fa-solid fa-user icon icon2"></i>
+                            </div>
+                            <div class="input-box">
+                                <label for="lastname">Soyadınız *</label>
+                                <input type="text" name="lastname" id="lastname" required placeholder="Soyadınız">
+                                <i class="fa-solid fa-user icon icon2"></i>
+                            </div>
+
+                            <div class="input-box">
+                                <label for="username">Kullanıcı Adı *</label>
+                                <input type="text" name="username" id="username" placeholder="Kullanıcı Adı" required> 
+                                <i class="fa-solid fa-user icon2 icon"></i>
+                            </div>
+                            
+                        </section>
+        
+                        <section class="container-b-right">
+                            
+                            <div class="input-box">
+                                <label for="email">Email *</label>
+                                <input type="email" name="email" id="email" required placeholder="Email Adresi">
+                                <i class="fa-solid fa-envelope icon2 icon"></i>
+                            </div>
+                            <div class="input-box">
+                                <label for="password">Parola *</label>
+                                <input type="password" name="password" id="password" required placeholder="Parola">
+                                <i class="fa-solid fa-lock icon2 icon"></i>
+                            </div>
+                            <div class="input-box">
+                                <label for="password">Tekrar Parola *</label>
+                                <input type="password" name="re-password" id="password" required placeholder="Tekrar Parola">
+                                <i class="fa-solid fa-lock icon2 icon"></i>
+                            </div>
+                            
+                        </section>
+                        
+                    </div>
+                    <div class="form-bottom">
+                        <button class="btn btn2">Kayıt Ol</button>
+                    </div>
+                </form>
+            </section>
+        <!-- Container bottom end -->
+        </section>
+
+        <!-- Container End -->
+    </main>
+</body>
+</html>
