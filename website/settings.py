@@ -124,9 +124,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-# STATICFILES_DIRS = [
-#     BASE_DIR / 'static'
-# ]
+STATICFILES_DIRS = [
+    BASE_DIR / 'staticfiles'
+]
 STATIC_ROOT = os.path.join(BASE_DIR,'static')
 CKEDITOR_UPLOAD_PATH = 'uploads/'
 MEDIA_URL = '/media/' 
@@ -136,46 +136,6 @@ MEDIA_ROOT = 'media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# CKEDITOR_CONFIGS = {
-#     'default':{
-#         'toolbar':'full',
-#         'extraPlugins':'codesnippet',
-#         'height': 700,
-#         'width' : 1000
-#     }
-# }
-"""
-CKEDITOR_CONFIGS = {
-    'default': {
-        'skin': 'moono',
-        'toolbar':'full',
-        'extraPlugins':'codesnippet',
-        'toolbar_MyCustomToolbar': [
-            {'name': 'basic', 'items': [
-                'Source',
-                '-',
-                'Bold',
-                'Italic',
-                'CodeSnippet'  # add the codesnippet button name
-            ]}
-        ],
-
-        'codeSnippet_theme': 'monokai',
-        # uncomment to restrict only those languages
-        'codeSnippet_languages': {
-            'python': 'Python',
-            'html':'html'
-        },
-        'toolbar': 'MyCustomToolbar',
-        'extraPlugins': ','.join(
-            [
-                # add the follow plugins
-                'codesnippet',
-                # 'widget',
-                # 'dialog',
-            ]),
-    }
-}"""
 CKEDITOR_CONFIGS = {
     'default': {
         'toolbar': 'full',
